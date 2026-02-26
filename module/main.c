@@ -229,7 +229,7 @@ void cvTimer_callback(void* o) {
             // With default CV.CAL settings, skip calibration math
             if (scene_state.cal.cv_scale[hardware_index].m == 1 &&
                 scene_state.cal.cv_scale[hardware_index].b == 0) {
-                output[hardware_index] = aout[software_index].now >> 2;
+                output[hardware_index] = aout[software_index].now;
             }
             else {
                 // apply calibration via fixed-point linear scaling
@@ -241,26 +241,32 @@ void cvTimer_callback(void* o) {
                 if (output[hardware_index] > 16383) {
                     output[hardware_index] = 16383;
                 }
-                output[hardware_index] = output[hardware_index] >> 2;
             }
         }
 
+        // AD5685 4-channel DAC: individual SPI transactions per channel
         spi_selectChip(DAC_SPI, DAC_SPI_NPCS);
-        spi_write(DAC_SPI, 0x31);
-        spi_write(DAC_SPI, output[2] >> 4);
-        spi_write(DAC_SPI, output[2] << 4);
-        spi_write(DAC_SPI, 0x31);
-        spi_write(DAC_SPI, output[0] >> 4);
-        spi_write(DAC_SPI, output[0] << 4);
+        spi_write(DAC_SPI, 0x31);  // Write to DAC Channel A (CV 0)
+        spi_write(DAC_SPI, output[0] >> 6);
+        spi_write(DAC_SPI, output[0] << 2);
         spi_unselectChip(DAC_SPI, DAC_SPI_NPCS);
 
         spi_selectChip(DAC_SPI, DAC_SPI_NPCS);
-        spi_write(DAC_SPI, 0x38);
-        spi_write(DAC_SPI, output[3] >> 4);
-        spi_write(DAC_SPI, output[3] << 4);
-        spi_write(DAC_SPI, 0x38);
-        spi_write(DAC_SPI, output[1] >> 4);
-        spi_write(DAC_SPI, output[1] << 4);
+        spi_write(DAC_SPI, 0x32);  // Write to DAC Channel B (CV 2)
+        spi_write(DAC_SPI, output[2] >> 6);
+        spi_write(DAC_SPI, output[2] << 2);
+        spi_unselectChip(DAC_SPI, DAC_SPI_NPCS);
+
+        spi_selectChip(DAC_SPI, DAC_SPI_NPCS);
+        spi_write(DAC_SPI, 0x34);  // Write to DAC Channel C (CV 3)
+        spi_write(DAC_SPI, output[3] >> 6);
+        spi_write(DAC_SPI, output[3] << 2);
+        spi_unselectChip(DAC_SPI, DAC_SPI_NPCS);
+
+        spi_selectChip(DAC_SPI, DAC_SPI_NPCS);
+        spi_write(DAC_SPI, 0x38);  // Write to DAC Channel D (CV 1)
+        spi_write(DAC_SPI, output[1] >> 6);
+        spi_write(DAC_SPI, output[1] << 2);
         spi_unselectChip(DAC_SPI, DAC_SPI_NPCS);
     }
 #ifdef TELETYPE_PROFILE
@@ -1261,12 +1267,12 @@ void initialize_module(void) {
     ss_set_scene(&scene_state, preset_select);
     flash_read(preset_select, &scene_state, &scene_text, 1, 1, 1);
 
-    // setup daisy chain for two dacs
-    spi_selectChip(DAC_SPI, DAC_SPI_NPCS);
-    spi_write(DAC_SPI, 0x80);
-    spi_write(DAC_SPI, 0xff);
-    spi_write(DAC_SPI, 0xff);
-    spi_unselectChip(DAC_SPI, DAC_SPI_NPCS);
+    // daisy chain init disabled for AD5685 single 4-channel DAC
+    // spi_selectChip(DAC_SPI, DAC_SPI_NPCS);
+    // spi_write(DAC_SPI, 0x80);
+    // spi_write(DAC_SPI, 0xff);
+    // spi_write(DAC_SPI, 0xff);
+    // spi_unselectChip(DAC_SPI, DAC_SPI_NPCS);
 
     timer_add(&clockTimer, RATE_CLOCK, &clockTimer_callback, NULL);
     timer_add(&cvTimer, RATE_CV, &cvTimer_callback, NULL);
