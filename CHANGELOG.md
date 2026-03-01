@@ -2,6 +2,7 @@
 
 ## v5.0.x:
 
+- **NEW**: [Four Seas](https://github.com/ferryislandmodular/fourseas) ops
 - **FIX**: fix risk of crash/corruption in help mode reverse search
 
 ## v5.0.0

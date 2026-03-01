@@ -11,6 +11,7 @@
 #include "ops/earthsea.h"
 #include "ops/er301.h"
 #include "ops/fader.h"
+#include "ops/fourseas.h"
 #include "ops/grid_ops.h"
 #include "ops/hardware.h"
 #include "ops/i2c.h"
@@ -242,6 +243,11 @@ const tele_op_t *tele_ops[E_OP__LENGTH] = {
     &op_FADER, &op_FADER_SCALE, &op_FADER_CAL_MIN, &op_FADER_CAL_MAX,
     &op_FADER_CAL_RESET, &op_FB, &op_FB_S, &op_FB_C_MIN, &op_FB_C_MAX,
     &op_FB_C_R,
+
+    // fourseas
+    &op_FS_X, &op_FS_Y, &op_FS_Z, &op_FS_X_SPR, &op_FS_Y_SPR, &op_FS_Z_SPR,
+    &op_FS_TUNE, &op_FS_MD1, &op_FS_MD2, &op_FS_BANK, &op_FS_F_SPR,
+    &op_FS_O_NT, &op_FS_O_X, &op_FS_O_Y, &op_FS_O_Z, &op_FS_REL,
 
     // ER301
     &op_SC_TR, &op_SC_TR_TOG, &op_SC_TR_PULSE, &op_SC_TR_TIME, &op_SC_TR_POL,

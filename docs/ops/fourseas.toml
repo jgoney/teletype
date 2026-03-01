@@ -1,0 +1,126 @@
+["FS.X"]
+prototype = "FS.X"
+prototype_set = "FS.X x"
+short = "Get/set X wavetable position offset"
+description = """
+Get or set the X wavetable position offset to `x` (0-16383, 8192 = center/no effect). Additive with knob and CV. Maps to -7.0 to +7.0 range.
+"""
+
+["FS.Y"]
+prototype = "FS.Y"
+prototype_set = "FS.Y x"
+short = "Get/set Y wavetable position offset"
+description = """
+Get or set the Y wavetable position offset to `x` (0-16383, 8192 = center/no effect). Additive with knob and CV.
+"""
+
+["FS.Z"]
+prototype = "FS.Z"
+prototype_set = "FS.Z x"
+short = "Get/set Z wavetable position offset"
+description = """
+Get or set the Z wavetable position offset to `x` (0-16383, 8192 = center/no effect). Additive with knob and CV.
+"""
+
+["FS.X.SPR"]
+prototype = "FS.X.SPR"
+prototype_set = "FS.X.SPR x"
+short = "Get/set X spread offset"
+description = """
+Get or set the X spread offset to `x` (0-16383, 8192 = center/no effect). Additive with knob and CV. Maps to -1.0 to 1.0 range.
+"""
+
+["FS.Y.SPR"]
+prototype = "FS.Y.SPR"
+prototype_set = "FS.Y.SPR x"
+short = "Get/set Y spread offset"
+description = """
+Get or set the Y spread offset to `x` (0-16383, 8192 = center/no effect). Additive with knob and CV.
+"""
+
+["FS.Z.SPR"]
+prototype = "FS.Z.SPR"
+prototype_set = "FS.Z.SPR x"
+short = "Get/set Z spread offset"
+description = """
+Get or set the Z spread offset to `x` (0-16383, 8192 = center/no effect). Additive with knob and CV.
+"""
+
+["FS.TUNE"]
+prototype = "FS.TUNE"
+prototype_set = "FS.TUNE x"
+short = "Get/set pitch offset in semitones * 128"
+description = """
+Get or set the pitch offset to `x` (semitones * 128). For example, `FS.TUNE 1536` offsets pitch up one octave (12 * 128). Additive with knob and V/Oct CV.
+"""
+
+["FS.MD1"]
+prototype = "FS.MD1"
+prototype_set = "FS.MD1 x"
+short = "Get/set modulation depth 1 offset"
+description = """
+Get or set modulation depth 1 offset to `x` (0-16383). Additive with knob. Maps to 0.0 to 1.0 range.
+"""
+
+["FS.MD2"]
+prototype = "FS.MD2"
+prototype_set = "FS.MD2 x"
+short = "Get/set modulation depth 2 offset"
+description = """
+Get or set modulation depth 2 offset to `x` (0-16383). Additive with knob. Maps to 0.0 to 1.0 range.
+"""
+
+["FS.BANK"]
+prototype = "FS.BANK"
+prototype_set = "FS.BANK x"
+short = "Get/set bank offset"
+description = """
+Get or set the bank offset to `x`. Additive with pot/CV bank selection, clamped to valid range (0-11).
+"""
+
+["FS.F.SPR"]
+prototype = "FS.F.SPR"
+prototype_set = "FS.F.SPR x"
+short = "Get/set frequency spread offset"
+description = """
+Get or set the frequency spread offset to `x` (0-16383, 8192 = center/no effect). Additive with knob and CV. Maps to -1.0 to 1.0 range.
+"""
+
+["FS.O.NT"]
+prototype = "FS.O.NT osc"
+prototype_set = "FS.O.NT osc x"
+short = "Get/set per-oscillator pitch offset"
+description = """
+Get or set pitch offset for oscillator `osc` (0-3) to `x` (semitones * 128). Additive with global pitch. For example, `FS.O.NT 0 1536` offsets oscillator 0 up one octave.
+"""
+
+["FS.O.X"]
+prototype = "FS.O.X osc"
+prototype_set = "FS.O.X osc x"
+short = "Get/set per-oscillator X position offset"
+description = """
+Get or set X position offset for oscillator `osc` (0-3) to `x` (0-16383, 8192 = center). Additive with global X position.
+"""
+
+["FS.O.Y"]
+prototype = "FS.O.Y osc"
+prototype_set = "FS.O.Y osc x"
+short = "Get/set per-oscillator Y position offset"
+description = """
+Get or set Y position offset for oscillator `osc` (0-3) to `x` (0-16383, 8192 = center). Additive with global Y position.
+"""
+
+["FS.O.Z"]
+prototype = "FS.O.Z osc"
+prototype_set = "FS.O.Z osc x"
+short = "Get/set per-oscillator Z position offset"
+description = """
+Get or set Z position offset for oscillator `osc` (0-3) to `x` (0-16383, 8192 = center). Additive with global Z position.
+"""
+
+["FS.REL"]
+prototype = "FS.REL"
+short = "Clear all I2C offsets to zero"
+description = """
+Reset all FourSeas I2C parameter offsets to zero (no effect), returning full control to knobs and CVs.
+"""

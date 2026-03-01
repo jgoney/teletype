@@ -649,6 +649,24 @@
         "FB.C.MAX"         => { MATCH_OP(E_OP_FB_C_MAX); };
         "FB.C.R"           => { MATCH_OP(E_OP_FB_C_R); };
 
+        # fourseas
+        "FS.X"         => { MATCH_OP(E_OP_FS_X); };
+        "FS.Y"         => { MATCH_OP(E_OP_FS_Y); };
+        "FS.Z"         => { MATCH_OP(E_OP_FS_Z); };
+        "FS.X.SPR"     => { MATCH_OP(E_OP_FS_X_SPR); };
+        "FS.Y.SPR"     => { MATCH_OP(E_OP_FS_Y_SPR); };
+        "FS.Z.SPR"     => { MATCH_OP(E_OP_FS_Z_SPR); };
+        "FS.TUNE"      => { MATCH_OP(E_OP_FS_TUNE); };
+        "FS.MD1"       => { MATCH_OP(E_OP_FS_MD1); };
+        "FS.MD2"       => { MATCH_OP(E_OP_FS_MD2); };
+        "FS.BANK"      => { MATCH_OP(E_OP_FS_BANK); };
+        "FS.F.SPR"     => { MATCH_OP(E_OP_FS_F_SPR); };
+        "FS.O.NT"      => { MATCH_OP(E_OP_FS_O_NT); };
+        "FS.O.X"       => { MATCH_OP(E_OP_FS_O_X); };
+        "FS.O.Y"       => { MATCH_OP(E_OP_FS_O_Y); };
+        "FS.O.Z"       => { MATCH_OP(E_OP_FS_O_Z); };
+        "FS.REL"       => { MATCH_OP(E_OP_FS_REL); };
+
         # ER301
         "SC.TR"            => { MATCH_OP(E_OP_SC_TR); };
         "SC.TR.TOG"        => { MATCH_OP(E_OP_SC_TR_TOG); };
